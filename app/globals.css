@@ -1,26 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@plugin "daisyui" {
+  themes: carnegie --default;
+  logs: false;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@plugin "daisyui/theme" {
+  name: "carnegie";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  /* Fonds */
+  --color-base-100: #FFFFFF;
+  --color-base-200: #F8FAFC;
+  --color-base-300: #E2E8F0;
+  --color-base-content: #0F172A;
+
+  /* Primaire = BLEU ROI du logo */
+  --color-primary: #2B3A9E;
+  --color-primary-content: #FFFFFF;
+
+  /* Secondaire = VERT SANTÉ du logo */
+  --color-secondary: #00A300;
+  --color-secondary-content: #FFFFFF;
+
+  /* Accent = Jaune doux pour highlights */
+  --color-accent: #FBBF24;
+  --color-accent-content: #0F172A;
+
+  /* Neutral = Bleu nuit profond */
+  --color-neutral: #0F172A;
+  --color-neutral-content: #E2E8F0;
+
+  /* États */
+  --color-info: #38BDF8;
+  --color-info-content: #0F172A;
+  --color-success: #22C55E;
+  --color-success-content: #FFFFFF;
+  --color-warning: #FBBF24;
+  --color-warning-content: #0F172A;
+  --color-error: #EF4444;
+  --color-error-content: #FFFFFF;
+
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-base-100 text-base-content antialiased;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .section-title {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight;
+  }
+  .section-eyebrow {
+    @apply text-primary font-bold text-sm tracking-[0.2em] uppercase;
+  }
+  .section-eyebrow-green {
+    @apply text-secondary font-bold text-sm tracking-[0.2em] uppercase;
+  }
+  .grid-pattern {
+    background-image: radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+  .gradient-primary {
+    background: linear-gradient(135deg, #2B3A9E 0%, #1E2875 100%);
+  }
+  .gradient-health {
+    background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
+  }
+  .gradient-mixed {
+    background: linear-gradient(135deg, #2B3A9E 0%, #22C55E 100%);
+  }
+  .overlay-dark {
+    background: linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.85) 100%);
+  }
+  .video-shadow {
+    box-shadow: 0 25px 50px -12px rgba(43, 58, 158, 0.25);
+  }
 }
