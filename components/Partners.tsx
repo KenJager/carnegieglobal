@@ -16,7 +16,7 @@ export default function Partners() {
           {partners.map((p) => (
             <div
               key={p.name}
-              className="group flex items-center justify-center p-6 bg-base-100 rounded-2xl border border-base-300 hover:border-primary/40 hover:shadow-lg transition-all"
+              className="group flex items-center justify-center p-1 bg-base-100 border border-base-300 hover:border-primary/40 hover:shadow-lg transition-all"
             >
               {/* Placeholder texte en attendant les vrais logos */}
               {/* <span className="text-xs font-bold text-base-content/60 text-center group-hover:text-primary transition-colors">
